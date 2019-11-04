@@ -62,7 +62,6 @@ public class Listener extends org.wso2.antlr.CompilerBaseListener {
         System.out.println("index0 => " + index1);
         System.out.println("index1 => " + index2);
     }
-*/
 
     @Override
     public void exitNatP(CompilerParser.NatPContext ctx) {
@@ -72,4 +71,6 @@ public class Listener extends org.wso2.antlr.CompilerBaseListener {
         System.out.println("index3 => " + index1);
         System.out.println("index4 => " + index2);
     }
+
+ */
 }
