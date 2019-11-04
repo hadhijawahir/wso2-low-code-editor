@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Listener extends PubSubBaseListener {
 
-/*
+
     @Override
     public void exitKeyValuePair(PubSubParser.KeyValuePairContext ctx) {
         super.exitKeyValuePair(ctx);
@@ -70,7 +70,7 @@ public class Listener extends PubSubBaseListener {
         System.out.println("index0 => " + index1);
         System.out.println("index1 => " + index2);
     }
-*/
+
 
     @Override
     public void exitNatP(PubSubParser.NatPContext ctx) {
