@@ -1,41 +1,33 @@
 package org.wso2;
 
-import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.tree.ErrorNode;
-import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.TerminalNode;
-import org.wso2.antlr.PubSubBaseListener;
-import org.wso2.antlr.PubSubParser;
+import org.wso2.antlr.CompilerParser;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Listener extends org.wso2.antlr.CompilerBaseListener {
 
-public class Listener extends PubSubBaseListener {
-
-
+/*
     @Override
-    public void exitKeyValuePair(PubSubParser.KeyValuePairContext ctx) {
+    public void exitKeyValuePair(CompilerParser.KeyValuePairContext ctx) {
         super.exitKeyValuePair(ctx);
         String KeyValuePair = ctx.getText();
         System.out.println("exitKeyValuePair: " + KeyValuePair);
     }
 
     @Override
-    public void exitNatP(PubSubParser.NatPContext ctx) {
+    public void exitNatP(CompilerParser.NatPContext ctx) {
         super.exitNatP(ctx);
         String NatP = ctx.getText();
         System.out.println("exitNatP: " + NatP);
     }
 
     @Override
-    public void exitNatS(PubSubParser.NatSContext ctx) {
+    public void exitNatS(CompilerParser.NatSContext ctx) {
         super.exitNatS(ctx);
         String NatS = ctx.getText();
         System.out.println("exitNatS: " + NatS);
     }
 
     @Override
-    public void exitCompilationUnit(PubSubParser.CompilationUnitContext ctx) {
+    public void exitCompilationUnit(CompilerParser.CompilationUnitContext ctx) {
         super.exitCompilationUnit(ctx);
         String CompilationUnit = ctx.getText();
         System.out.println("exitCompilationUnit: " + CompilationUnit);
@@ -49,7 +41,7 @@ public class Listener extends PubSubBaseListener {
     }
 
     @Override
-    public void exitNatP(PubSubParser.NatPContext ctx) {
+    public void exitNatP(CompilerParser.NatPContext ctx) {
         super.exitNatP(ctx);
         String NatP = ctx.getText();
         System.out.println("exitNatP: " + NatP);
@@ -63,17 +55,17 @@ public class Listener extends PubSubBaseListener {
     }
 
     @Override
-    public void exitCompilationUnit(PubSubParser.CompilationUnitContext ctx) {
+    public void exitCompilationUnit(CompilerParser.CompilationUnitContext ctx) {
         super.exitCompilationUnit(ctx);
         String index1 = ctx.getChild(0).getText();
         String index2 = ctx.getChild(1).getText();
         System.out.println("index0 => " + index1);
         System.out.println("index1 => " + index2);
     }
-
+*/
 
     @Override
-    public void exitNatP(PubSubParser.NatPContext ctx) {
+    public void exitNatP(CompilerParser.NatPContext ctx) {
         super.exitNatP(ctx);
         String index1 = ctx.getChild(0).getText();
         String index2 = ctx.getChild(2).getText();

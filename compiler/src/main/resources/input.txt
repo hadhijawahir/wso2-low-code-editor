@@ -1,0 +1,10 @@
+natP {
+    url : "localhost:4222";
+    topic : "sample topic";
+    message : "sample message";
+};
+
+natS {
+    url : "localhost:4222";
+    topic : "sample topic";
+};

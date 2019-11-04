@@ -1,4 +1,4 @@
-package com.treestructure.tree;
+package org.wso2;
 
 public class NatC extends Node {
     private String url;
@@ -7,6 +7,7 @@ public class NatC extends Node {
     public NatC(String url, String topic) {
         this.url = url;
         this.topic = topic;
+
     }
 
 
