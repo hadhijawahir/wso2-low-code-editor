@@ -1,4 +1,6 @@
-package org.wso2.antlr;// Generated from PubSub.g4 by ANTLR 4.7.1
+package org.wso2.antlr;
+
+// Generated from Compiler.g4 by ANTLR 4.7.2
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -9,8 +11,8 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class PubSubLexer extends Lexer {
-	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
+public class CompilerLexer extends Lexer {
+	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -26,20 +28,29 @@ public class PubSubLexer extends Lexer {
 		"DEFAULT_MODE"
 	};
 
-	public static final String[] ruleNames = {
-		"T__0", "T__1", "SEMICOLON", "COLON", "DOT", "COMMA", "LEFT_BRACE", "RIGHT_BRACE", 
-		"SINGLE_STRING", "DOUBLE_STRING", "NATP", "NATS", "IDENTIFIER", "WS"
-	};
+	private static String[] makeRuleNames() {
+		return new String[] {
+			"T__0", "T__1", "SEMICOLON", "COLON", "DOT", "COMMA", "LEFT_BRACE", "RIGHT_BRACE", 
+			"SINGLE_STRING", "DOUBLE_STRING", "NATP", "NATS", "IDENTIFIER", "WS"
+		};
+	}
+	public static final String[] ruleNames = makeRuleNames();
 
-	private static final String[] _LITERAL_NAMES = {
-		null, "'true'", "'false'", "';'", "':'", "'.'", "','", "'{'", "'}'", null, 
-		null, "'natP'", "'natS'"
-	};
-	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, "SEMICOLON", "COLON", "DOT", "COMMA", "LEFT_BRACE", 
-		"RIGHT_BRACE", "SINGLE_STRING", "DOUBLE_STRING", "NATP", "NATS", "IDENTIFIER", 
-		"WS"
-	};
+	private static String[] makeLiteralNames() {
+		return new String[] {
+			null, "'true'", "'false'", "';'", "':'", "'.'", "','", "'{'", "'}'", 
+			null, null, "'natP'", "'natS'"
+		};
+	}
+	private static final String[] _LITERAL_NAMES = makeLiteralNames();
+	private static String[] makeSymbolicNames() {
+		return new String[] {
+			null, null, null, "SEMICOLON", "COLON", "DOT", "COMMA", "LEFT_BRACE", 
+			"RIGHT_BRACE", "SINGLE_STRING", "DOUBLE_STRING", "NATP", "NATS", "IDENTIFIER", 
+			"WS"
+		};
+	}
+	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
@@ -74,13 +85,13 @@ public class PubSubLexer extends Lexer {
 	}
 
 
-	public PubSubLexer(CharStream input) {
+	public CompilerLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
 	@Override
-	public String getGrammarFileName() { return "PubSub.g4"; }
+	public String getGrammarFileName() { return "Compiler.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

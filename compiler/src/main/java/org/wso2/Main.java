@@ -4,8 +4,8 @@ import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import org.wso2.antlr.PubSubLexer;
-import org.wso2.antlr.PubSubParser;
+import org.wso2.antlr.CompilerLexer;
+import org.wso2.antlr.CompilerParser;
 
 import java.nio.file.Paths;
 
@@ -19,17 +19,17 @@ public class Main {
             CharStream charStream = CharStreams.fromString(input);
             */
 
-            CharStream charStream = CharStreams.fromPath(Paths.get("/home/hadhi/Documents/Workspaces/IntelliJ/AntlrTest/pubSub/src/resources/input.txt"));
-            PubSubLexer lexer = new PubSubLexer(charStream);
+            CharStream charStream = CharStreams.fromPath(Paths.get(Main.class.getClassLoader().getResource("input.txt").getFile()));
+            CompilerLexer lexer = new CompilerLexer(charStream);
             CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-            PubSubParser parser = new PubSubParser(tokenStream);
+            CompilerParser parser = new CompilerParser(tokenStream);
 
             ParseTreeWalker walker = new ParseTreeWalker();
             parser.addParseListener(new Listener());
             parser.compilationUnit();
 
          /*
-            PubSubParser.CompilationUnitContext tree = parser.compilationUnit();
+            CompilerParser.CompilationUnitContext tree = parser.compilationUnit();
             Listener extractor = new Listener();
             ParseTreeWalker.DEFAULT.walk(extractor, tree);
          */

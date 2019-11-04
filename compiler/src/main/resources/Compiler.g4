@@ -1,4 +1,4 @@
-grammar PubSub;
+grammar Compiler;
 
 compilationUnit
     : (natP | natS)*
