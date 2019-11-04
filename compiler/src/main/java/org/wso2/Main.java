@@ -19,6 +19,7 @@ public class Main {
             CharStream charStream = CharStreams.fromString(input);
             */
 
+
             CharStream charStream = CharStreams.fromPath(Paths.get(Main.class.getClassLoader().getResource("input.txt").getFile()));
             CompilerLexer lexer = new CompilerLexer(charStream);
             CommonTokenStream tokenStream = new CommonTokenStream(lexer);
