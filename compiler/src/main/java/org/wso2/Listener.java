@@ -1,76 +1,53 @@
 package org.wso2;
 
 import org.wso2.antlr.CompilerParser;
+import org.wso2.tree.CompilationUnitBuilder;
 
 public class Listener extends org.wso2.antlr.CompilerBaseListener {
+    private final CompilationUnitBuilder compilationUnitBuilder;
 
-/*
-    @Override
-    public void exitKeyValuePair(CompilerParser.KeyValuePairContext ctx) {
-        super.exitKeyValuePair(ctx);
-        String KeyValuePair = ctx.getText();
-        System.out.println("exitKeyValuePair: " + KeyValuePair);
+    public Listener() {
+        this.compilationUnitBuilder = new CompilationUnitBuilder();
     }
 
     @Override
-    public void exitNatP(CompilerParser.NatPContext ctx) {
-        super.exitNatP(ctx);
-        String NatP = ctx.getText();
-        System.out.println("exitNatP: " + NatP);
+    public void exitKeyValuePair(CompilerParser.KeyValuePairContext ctx) {
+        compilationUnitBuilder.endKeyValuePair(ctx);
+    }
+
+    @Override
+    public void enterCompilationUnit(CompilerParser.CompilationUnitContext ctx) {
+        compilationUnitBuilder.startCompilationUnit(ctx);
+    }
+
+    @Override
+    public void enterNatP(CompilerParser.NatPContext ctx) {
+        compilationUnitBuilder.startNatP(ctx);
+    }
+
+    @Override
+    public void enterNatS(CompilerParser.NatSContext ctx) {
+        compilationUnitBuilder.startNatS(ctx);
+    }
+
+    @Override
+    public void enterKeyValuePair(CompilerParser.KeyValuePairContext ctx) {
+        compilationUnitBuilder.startKeyValuePair(ctx);
     }
 
     @Override
     public void exitNatS(CompilerParser.NatSContext ctx) {
-        super.exitNatS(ctx);
-        String NatS = ctx.getText();
-        System.out.println("exitNatS: " + NatS);
+        compilationUnitBuilder.endNatS(ctx);
+    }
+
+
+    @Override
+    public void exitNatP(CompilerParser.NatPContext ctx) {
+        compilationUnitBuilder.endNatP(ctx);
     }
 
     @Override
     public void exitCompilationUnit(CompilerParser.CompilationUnitContext ctx) {
-        super.exitCompilationUnit(ctx);
-        String CompilationUnit = ctx.getText();
-        System.out.println("exitCompilationUnit: " + CompilationUnit);
+        compilationUnitBuilder.endCompilationUnit(ctx);
     }
-
-    @Override
-    public void exitEveryRule(ParserRuleContext ctx) {
-        super.exitEveryRule(ctx);
-        String NatS = ctx.getText();
-        System.out.println(NatS);
-    }
-
-    @Override
-    public void exitNatP(CompilerParser.NatPContext ctx) {
-        super.exitNatP(ctx);
-        String NatP = ctx.getText();
-        System.out.println("exitNatP: " + NatP);
-        List<TerminalNode> terminalNodes = new ArrayList<TerminalNode>();
-        for (int i = 0; i < ctx.getChildCount(); i++) {
-            if (ctx.getChild(i) instanceof TerminalNode) {
-                terminalNodes.add((TerminalNode)ctx.getChild(i));
-            }
-        }
-        System.out.println(terminalNodes.get(0));
-    }
-
-    @Override
-    public void exitCompilationUnit(CompilerParser.CompilationUnitContext ctx) {
-        super.exitCompilationUnit(ctx);
-        String index1 = ctx.getChild(0).getText();
-        String index2 = ctx.getChild(1).getText();
-        System.out.println("index0 => " + index1);
-        System.out.println("index1 => " + index2);
-    }
-
-    @Override
-    public void exitNatP(CompilerParser.NatPContext ctx) {
-        super.exitNatP(ctx);
-        String index1 = ctx.getChild(0).getText();
-        String index2 = ctx.getChild(2).getText();
-        System.out.println("index3 => " + index1);
-        System.out.println("index4 => " + index2);
-    }
-
- */
 }

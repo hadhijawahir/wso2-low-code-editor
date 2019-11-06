@@ -5,8 +5,15 @@ public class KeyValuePair extends Node {
     private String key;
     private String value;
 
-    public KeyValuePair(String key, String value) {
+    public KeyValuePair() {
+
+    }
+
+    public void setKey(String key) {
         this.key = key;
+    }
+
+    public void setValue(String value) {
         this.value = value;
     }
 

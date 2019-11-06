@@ -1,29 +1,13 @@
 package org.wso2.tree;
 
-public class CompilationUnit {
-//    private List<Node> topLevelNodes = new ArrayList<>();
-    private NatP natP;
-    private NatS natS;
+import java.util.ArrayList;
+import java.util.List;
 
-    public CompilationUnit(NatS natS) {
-        this.natS = natS;
-    }
+public class CompilationUnit extends Node {
+    private List<Node> topLevelNodes = new ArrayList<>();
 
-    public CompilationUnit(NatP natP) {
-        this.natP = natP;
-    }
+    public CompilationUnit() {
 
-    public CompilationUnit(NatP natP, NatS natS) {
-        this.natP = natP;
-        this.natS = natS;
-    }
-
-    public NatP getNatP() {
-        return natP;
-    }
-
-    public NatS getNatS() {
-        return natS;
     }
 
 }
