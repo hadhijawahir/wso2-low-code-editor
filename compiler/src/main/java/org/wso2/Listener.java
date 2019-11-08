@@ -24,13 +24,13 @@ public class Listener extends org.wso2.antlr.CompilerParserBaseListener {
     }
 
     @Override
-    public void enterNatP(CompilerParser.NatPContext ctx) {
-        compilationUnitBuilder.startNatP(ctx);
+    public void enterPublisher(CompilerParser.PublisherContext ctx) {
+        compilationUnitBuilder.startPublisher(ctx);
     }
 
     @Override
-    public void enterNatS(CompilerParser.NatSContext ctx) {
-        compilationUnitBuilder.startNatS(ctx);
+    public void enterSubscriber(CompilerParser.SubscriberContext ctx) {
+        compilationUnitBuilder.startSubscriber(ctx);
     }
 
     @Override
@@ -39,14 +39,14 @@ public class Listener extends org.wso2.antlr.CompilerParserBaseListener {
     }
 
     @Override
-    public void exitNatS(CompilerParser.NatSContext ctx) {
-        compilationUnitBuilder.endNatS(ctx);
+    public void exitSubscriber(CompilerParser.SubscriberContext ctx) {
+        compilationUnitBuilder.endSubscriber(ctx);
     }
 
 
     @Override
-    public void exitNatP(CompilerParser.NatPContext ctx) {
-        compilationUnitBuilder.endNatP(ctx);
+    public void exitPublisher(CompilerParser.PublisherContext ctx) {
+        compilationUnitBuilder.endPublisher(ctx);
     }
 
     @Override

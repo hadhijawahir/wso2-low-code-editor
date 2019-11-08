@@ -1,12 +1,13 @@
 package org.wso2.tree;
 
-import java.util.Stack;
 import org.wso2.antlr.CompilerParser;
+
+import java.util.Stack;
 
 public class CompilationUnitBuilder {
     private CompilationUnit compilationUnit;
     private Stack<Node> nodes = new Stack<>();
-    private Stack<NatNode> natNodeStack = new Stack<>();
+    private Stack<Client> clientStack = new Stack<>();
     private Stack<KeyValuePair> keyValuePairStack = new Stack<>();
 
     public void startCompilationUnit(CompilerParser.CompilationUnitContext ctx) {
@@ -17,27 +18,27 @@ public class CompilationUnitBuilder {
 
     }
 
-    public void startNatS(CompilerParser.NatSContext ctx) {
-        NatS natS = new NatS();
-        natNodeStack.push(natS);
+    public void startSubscriber(CompilerParser.SubscriberContext ctx) {
+        Subscriber subscriber = new Subscriber();
+        clientStack.push(subscriber);
     }
 
-    public void endNatS(CompilerParser.NatSContext ctx) {
-        // get nat s children from their stacks and add to this nats obj.
-        NatNode natNode = natNodeStack.pop();
+    public void endSubscriber(CompilerParser.SubscriberContext ctx) {
+        // get nat s children from their stacks and add to this Subscriber obj.
+        Client client = clientStack.pop();
 
         // add to compilation unit
-        compilationUnit.addChild(natNode);
+        compilationUnit.addChild(client);
     }
 
-    public void startNatP(CompilerParser.NatPContext ctx) {
-        NatP natP = new NatP();
-        natNodeStack.add(natP);
+    public void startPublisher(CompilerParser.PublisherContext ctx) {
+        Publisher publisher = new Publisher();
+        clientStack.add(publisher);
     }
 
-    public void endNatP(CompilerParser.NatPContext ctx) {
-        NatNode natNode = natNodeStack.pop();
-        compilationUnit.addChild(natNode);
+    public void endPublisher(CompilerParser.PublisherContext ctx) {
+        Client client = clientStack.pop();
+        compilationUnit.addChild(client);
     }
 
     public void startKeyValuePair(CompilerParser.KeyValuePairContext ctx) {
@@ -54,8 +55,8 @@ public class CompilationUnitBuilder {
         KeyValuePair keyValuePair = keyValuePairStack.pop();
         keyValuePair.setKey(key);
         keyValuePair.setValue(value);
-        NatNode natNode = natNodeStack.peek();
-        natNode.addChild(keyValuePair);
+        Client client = clientStack.peek();
+        client.addChild(keyValuePair);
 
     }
 }

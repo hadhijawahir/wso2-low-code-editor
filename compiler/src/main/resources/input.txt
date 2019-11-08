@@ -1,10 +1,10 @@
-natP {
+publisher {
     url : "localhost:4222";
     topic : "sample topic";
     message : "sample message";
 };
 
-natS {
+subscriber {
     url : "localhost:4222";
     topic : "sample topic";
 };

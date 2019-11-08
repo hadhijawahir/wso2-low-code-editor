@@ -5,6 +5,7 @@ options {
     tokenVocab = CompilerLexer;
 }
 
+// starting point for parsing inputs from publisher and subscriber
 compilationUnit
     : (publisher | subscriber)*
     ;
