@@ -1,13 +1,13 @@
 package org.wso2.antlr;
 
-// Generated from Compiler.g4 by ANTLR 4.7.2
+// Generated from CompilerParser.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
  * This interface defines a complete listener for a parse tree produced by
  * {@link CompilerParser}.
  */
-public interface CompilerListener extends ParseTreeListener {
+public interface CompilerParserListener extends ParseTreeListener {
 	/**
 	 * Enter a parse tree produced by {@link CompilerParser#compilationUnit}.
 	 * @param ctx the parse tree
@@ -19,25 +19,25 @@ public interface CompilerListener extends ParseTreeListener {
 	 */
 	void exitCompilationUnit(CompilerParser.CompilationUnitContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CompilerParser#natP}.
+	 * Enter a parse tree produced by {@link CompilerParser#publisher}.
 	 * @param ctx the parse tree
 	 */
-	void enterNatP(CompilerParser.NatPContext ctx);
+	void enterPublisher(CompilerParser.PublisherContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CompilerParser#natP}.
+	 * Exit a parse tree produced by {@link CompilerParser#publisher}.
 	 * @param ctx the parse tree
 	 */
-	void exitNatP(CompilerParser.NatPContext ctx);
+	void exitPublisher(CompilerParser.PublisherContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CompilerParser#natS}.
+	 * Enter a parse tree produced by {@link CompilerParser#subscriber}.
 	 * @param ctx the parse tree
 	 */
-	void enterNatS(CompilerParser.NatSContext ctx);
+	void enterSubscriber(CompilerParser.SubscriberContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link CompilerParser#natS}.
+	 * Exit a parse tree produced by {@link CompilerParser#subscriber}.
 	 * @param ctx the parse tree
 	 */
-	void exitNatS(CompilerParser.NatSContext ctx);
+	void exitSubscriber(CompilerParser.SubscriberContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CompilerParser#keyValuePair}.
 	 * @param ctx the parse tree

@@ -1,6 +1,6 @@
 package org.wso2.antlr;
 
-// Generated from Compiler.g4 by ANTLR 4.7.2
+// Generated from CompilerParser.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -12,40 +12,32 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class CompilerParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.7.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, SEMICOLON=3, COLON=4, DOT=5, COMMA=6, LEFT_BRACE=7, RIGHT_BRACE=8, 
-		SINGLE_STRING=9, DOUBLE_STRING=10, NATP=11, NATS=12, IDENTIFIER=13, WS=14;
+		SEMICOLON=1, COLON=2, DOT=3, COMMA=4, LEFT_BRACE=5, RIGHT_BRACE=6, SINGLE_STRING=7, 
+		DOUBLE_STRING=8, PUBLISHER=9, SUBSCRIBER=10, TRUE=11, FALSE=12, IDENTIFIER=13, 
+		WS=14;
 	public static final int
-		RULE_compilationUnit = 0, RULE_natP = 1, RULE_natS = 2, RULE_keyValuePair = 3, 
+		RULE_compilationUnit = 0, RULE_publisher = 1, RULE_subscriber = 2, RULE_keyValuePair = 3, 
 		RULE_primitive = 4, RULE_string = 5, RULE_bool = 6;
-	private static String[] makeRuleNames() {
-		return new String[] {
-			"compilationUnit", "natP", "natS", "keyValuePair", "primitive", "string", 
-			"bool"
-		};
-	}
-	public static final String[] ruleNames = makeRuleNames();
+	public static final String[] ruleNames = {
+		"compilationUnit", "publisher", "subscriber", "keyValuePair", "primitive", 
+		"string", "bool"
+	};
 
-	private static String[] makeLiteralNames() {
-		return new String[] {
-			null, "'true'", "'false'", "';'", "':'", "'.'", "','", "'{'", "'}'", 
-			null, null, "'natP'", "'natS'"
-		};
-	}
-	private static final String[] _LITERAL_NAMES = makeLiteralNames();
-	private static String[] makeSymbolicNames() {
-		return new String[] {
-			null, null, null, "SEMICOLON", "COLON", "DOT", "COMMA", "LEFT_BRACE", 
-			"RIGHT_BRACE", "SINGLE_STRING", "DOUBLE_STRING", "NATP", "NATS", "IDENTIFIER", 
-			"WS"
-		};
-	}
-	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
+	private static final String[] _LITERAL_NAMES = {
+		null, "';'", "':'", "'.'", "','", "'{'", "'}'", null, null, "'publisher'", 
+		"'subscriber'", "'true'", "'false'"
+	};
+	private static final String[] _SYMBOLIC_NAMES = {
+		null, "SEMICOLON", "COLON", "DOT", "COMMA", "LEFT_BRACE", "RIGHT_BRACE", 
+		"SINGLE_STRING", "DOUBLE_STRING", "PUBLISHER", "SUBSCRIBER", "TRUE", "FALSE", 
+		"IDENTIFIER", "WS"
+	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
@@ -80,7 +72,7 @@ public class CompilerParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "Compiler.g4"; }
+	public String getGrammarFileName() { return "CompilerParser.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -95,19 +87,18 @@ public class CompilerParser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
-
 	public static class CompilationUnitContext extends ParserRuleContext {
-		public List<NatPContext> natP() {
-			return getRuleContexts(NatPContext.class);
+		public List<PublisherContext> publisher() {
+			return getRuleContexts(PublisherContext.class);
 		}
-		public NatPContext natP(int i) {
-			return getRuleContext(NatPContext.class,i);
+		public PublisherContext publisher(int i) {
+			return getRuleContext(PublisherContext.class,i);
 		}
-		public List<NatSContext> natS() {
-			return getRuleContexts(NatSContext.class);
+		public List<SubscriberContext> subscriber() {
+			return getRuleContexts(SubscriberContext.class);
 		}
-		public NatSContext natS(int i) {
-			return getRuleContext(NatSContext.class,i);
+		public SubscriberContext subscriber(int i) {
+			return getRuleContext(SubscriberContext.class,i);
 		}
 		public CompilationUnitContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -115,11 +106,11 @@ public class CompilerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_compilationUnit; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).enterCompilationUnit(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).enterCompilationUnit(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).exitCompilationUnit(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).exitCompilationUnit(this);
 		}
 	}
 
@@ -133,21 +124,21 @@ public class CompilerParser extends Parser {
 			setState(18);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==NATP || _la==NATS) {
+			while (_la==PUBLISHER || _la==SUBSCRIBER) {
 				{
 				setState(16);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
-				case NATP:
+				case PUBLISHER:
 					{
 					setState(14);
-					natP();
+					publisher();
 					}
 					break;
-				case NATS:
+				case SUBSCRIBER:
 					{
 					setState(15);
-					natS();
+					subscriber();
 					}
 					break;
 				default:
@@ -171,8 +162,8 @@ public class CompilerParser extends Parser {
 		return _localctx;
 	}
 
-	public static class NatPContext extends ParserRuleContext {
-		public TerminalNode NATP() { return getToken(CompilerParser.NATP, 0); }
+	public static class PublisherContext extends ParserRuleContext {
+		public TerminalNode PUBLISHER() { return getToken(CompilerParser.PUBLISHER, 0); }
 		public TerminalNode LEFT_BRACE() { return getToken(CompilerParser.LEFT_BRACE, 0); }
 		public TerminalNode RIGHT_BRACE() { return getToken(CompilerParser.RIGHT_BRACE, 0); }
 		public TerminalNode SEMICOLON() { return getToken(CompilerParser.SEMICOLON, 0); }
@@ -186,29 +177,29 @@ public class CompilerParser extends Parser {
 		public TerminalNode COMMA(int i) {
 			return getToken(CompilerParser.COMMA, i);
 		}
-		public NatPContext(ParserRuleContext parent, int invokingState) {
+		public PublisherContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_natP; }
+		@Override public int getRuleIndex() { return RULE_publisher; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).enterNatP(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).enterPublisher(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).exitNatP(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).exitPublisher(this);
 		}
 	}
 
-	public final NatPContext natP() throws RecognitionException {
-		NatPContext _localctx = new NatPContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_natP);
+	public final PublisherContext publisher() throws RecognitionException {
+		PublisherContext _localctx = new PublisherContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_publisher);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(21);
-			match(NATP);
+			match(PUBLISHER);
 			setState(22);
 			match(LEFT_BRACE);
 			setState(36);
@@ -266,8 +257,8 @@ public class CompilerParser extends Parser {
 		return _localctx;
 	}
 
-	public static class NatSContext extends ParserRuleContext {
-		public TerminalNode NATS() { return getToken(CompilerParser.NATS, 0); }
+	public static class SubscriberContext extends ParserRuleContext {
+		public TerminalNode SUBSCRIBER() { return getToken(CompilerParser.SUBSCRIBER, 0); }
 		public TerminalNode LEFT_BRACE() { return getToken(CompilerParser.LEFT_BRACE, 0); }
 		public TerminalNode RIGHT_BRACE() { return getToken(CompilerParser.RIGHT_BRACE, 0); }
 		public TerminalNode SEMICOLON() { return getToken(CompilerParser.SEMICOLON, 0); }
@@ -281,29 +272,29 @@ public class CompilerParser extends Parser {
 		public TerminalNode COMMA(int i) {
 			return getToken(CompilerParser.COMMA, i);
 		}
-		public NatSContext(ParserRuleContext parent, int invokingState) {
+		public SubscriberContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_natS; }
+		@Override public int getRuleIndex() { return RULE_subscriber; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).enterNatS(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).enterSubscriber(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).exitNatS(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).exitSubscriber(this);
 		}
 	}
 
-	public final NatSContext natS() throws RecognitionException {
-		NatSContext _localctx = new NatSContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_natS);
+	public final SubscriberContext subscriber() throws RecognitionException {
+		SubscriberContext _localctx = new SubscriberContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_subscriber);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(41);
-			match(NATS);
+			match(SUBSCRIBER);
 			setState(42);
 			match(LEFT_BRACE);
 			setState(56);
@@ -374,11 +365,11 @@ public class CompilerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_keyValuePair; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).enterKeyValuePair(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).enterKeyValuePair(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).exitKeyValuePair(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).exitKeyValuePair(this);
 		}
 	}
 
@@ -422,11 +413,11 @@ public class CompilerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_primitive; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).enterPrimitive(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).enterPrimitive(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).exitPrimitive(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).exitPrimitive(this);
 		}
 	}
 
@@ -445,8 +436,8 @@ public class CompilerParser extends Parser {
 				string();
 				}
 				break;
-			case T__0:
-			case T__1:
+			case TRUE:
+			case FALSE:
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(67);
@@ -477,11 +468,11 @@ public class CompilerParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_string; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).enterString(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).enterString(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).exitString(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).exitString(this);
 		}
 	}
 
@@ -516,17 +507,19 @@ public class CompilerParser extends Parser {
 	}
 
 	public static class BoolContext extends ParserRuleContext {
+		public TerminalNode TRUE() { return getToken(CompilerParser.TRUE, 0); }
+		public TerminalNode FALSE() { return getToken(CompilerParser.FALSE, 0); }
 		public BoolContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_bool; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).enterBool(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).enterBool(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CompilerListener ) ((CompilerListener)listener).exitBool(this);
+			if ( listener instanceof CompilerParserListener ) ((CompilerParserListener)listener).exitBool(this);
 		}
 	}
 
@@ -539,7 +532,7 @@ public class CompilerParser extends Parser {
 			{
 			setState(72);
 			_la = _input.LA(1);
-			if ( !(_la==T__0 || _la==T__1) ) {
+			if ( !(_la==TRUE || _la==FALSE) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -567,18 +560,18 @@ public class CompilerParser extends Parser {
 		"\16\3%\13\3\5\3\'\n\3\3\3\3\3\3\3\3\4\3\4\3\4\7\4/\n\4\f\4\16\4\62\13"+
 		"\4\3\4\3\4\7\4\66\n\4\f\4\16\49\13\4\5\4;\n\4\3\4\3\4\3\4\3\5\3\5\3\5"+
 		"\3\5\3\5\3\6\3\6\5\6G\n\6\3\7\3\7\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\4"+
-		"\3\2\13\f\3\2\3\4\2N\2\24\3\2\2\2\4\27\3\2\2\2\6+\3\2\2\2\b?\3\2\2\2\n"+
+		"\3\2\t\n\3\2\r\16\2N\2\24\3\2\2\2\4\27\3\2\2\2\6+\3\2\2\2\b?\3\2\2\2\n"+
 		"F\3\2\2\2\fH\3\2\2\2\16J\3\2\2\2\20\23\5\4\3\2\21\23\5\6\4\2\22\20\3\2"+
 		"\2\2\22\21\3\2\2\2\23\26\3\2\2\2\24\22\3\2\2\2\24\25\3\2\2\2\25\3\3\2"+
-		"\2\2\26\24\3\2\2\2\27\30\7\r\2\2\30&\7\t\2\2\31\33\5\b\5\2\32\31\3\2\2"+
-		"\2\33\36\3\2\2\2\34\32\3\2\2\2\34\35\3\2\2\2\35#\3\2\2\2\36\34\3\2\2\2"+
-		"\37 \7\b\2\2 \"\5\b\5\2!\37\3\2\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$\'"+
-		"\3\2\2\2%#\3\2\2\2&\34\3\2\2\2&\'\3\2\2\2\'(\3\2\2\2()\7\n\2\2)*\7\5\2"+
-		"\2*\5\3\2\2\2+,\7\16\2\2,:\7\t\2\2-/\5\b\5\2.-\3\2\2\2/\62\3\2\2\2\60"+
-		".\3\2\2\2\60\61\3\2\2\2\61\67\3\2\2\2\62\60\3\2\2\2\63\64\7\b\2\2\64\66"+
+		"\2\2\26\24\3\2\2\2\27\30\7\13\2\2\30&\7\7\2\2\31\33\5\b\5\2\32\31\3\2"+
+		"\2\2\33\36\3\2\2\2\34\32\3\2\2\2\34\35\3\2\2\2\35#\3\2\2\2\36\34\3\2\2"+
+		"\2\37 \7\6\2\2 \"\5\b\5\2!\37\3\2\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$"+
+		"\'\3\2\2\2%#\3\2\2\2&\34\3\2\2\2&\'\3\2\2\2\'(\3\2\2\2()\7\b\2\2)*\7\3"+
+		"\2\2*\5\3\2\2\2+,\7\f\2\2,:\7\7\2\2-/\5\b\5\2.-\3\2\2\2/\62\3\2\2\2\60"+
+		".\3\2\2\2\60\61\3\2\2\2\61\67\3\2\2\2\62\60\3\2\2\2\63\64\7\6\2\2\64\66"+
 		"\5\b\5\2\65\63\3\2\2\2\669\3\2\2\2\67\65\3\2\2\2\678\3\2\2\28;\3\2\2\2"+
-		"9\67\3\2\2\2:\60\3\2\2\2:;\3\2\2\2;<\3\2\2\2<=\7\n\2\2=>\7\5\2\2>\7\3"+
-		"\2\2\2?@\7\17\2\2@A\7\6\2\2AB\5\n\6\2BC\7\5\2\2C\t\3\2\2\2DG\5\f\7\2E"+
+		"9\67\3\2\2\2:\60\3\2\2\2:;\3\2\2\2;<\3\2\2\2<=\7\b\2\2=>\7\3\2\2>\7\3"+
+		"\2\2\2?@\7\17\2\2@A\7\4\2\2AB\5\n\6\2BC\7\3\2\2C\t\3\2\2\2DG\5\f\7\2E"+
 		"G\5\16\b\2FD\3\2\2\2FE\3\2\2\2G\13\3\2\2\2HI\t\2\2\2I\r\3\2\2\2JK\t\3"+
 		"\2\2K\17\3\2\2\2\13\22\24\34#&\60\67:F";
 	public static final ATN _ATN =

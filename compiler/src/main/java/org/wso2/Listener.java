@@ -3,8 +3,11 @@ package org.wso2;
 import org.wso2.antlr.CompilerParser;
 import org.wso2.tree.CompilationUnitBuilder;
 
-public class Listener extends org.wso2.antlr.CompilerBaseListener {
-    private final CompilationUnitBuilder compilationUnitBuilder;
+
+public class Listener extends org.wso2.antlr.CompilerParserBaseListener {
+
+    private CompilationUnitBuilder compilationUnitBuilder;
+
 
     public Listener() {
         this.compilationUnitBuilder = new CompilationUnitBuilder();
@@ -49,5 +52,6 @@ public class Listener extends org.wso2.antlr.CompilerBaseListener {
     @Override
     public void exitCompilationUnit(CompilerParser.CompilationUnitContext ctx) {
         compilationUnitBuilder.endCompilationUnit(ctx);
+
     }
 }
