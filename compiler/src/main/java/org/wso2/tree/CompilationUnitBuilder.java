@@ -50,7 +50,7 @@ public class CompilationUnitBuilder {
 
     public void endKeyValuePair(CompilerParser.KeyValuePairContext ctx) {
         String rawContent = ctx.getText();
-        String[] split = rawContent.split(":");
+        String[] split = rawContent.replace(";", "").split(":", 2);
         String key = split[0];
         String value = split[1].replace("\"", "");
 

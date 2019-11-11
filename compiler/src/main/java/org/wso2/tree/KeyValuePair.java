@@ -1,12 +1,14 @@
 package org.wso2.tree;
 
+import org.wso2.util.Constants;
+
 public class KeyValuePair extends Node {
 
     private String key;
     private String value;
 
     public KeyValuePair() {
-
+        super(Constants.KEY_VALUE_PAIR);
     }
 
     public void setKey(String key) {
@@ -25,4 +27,11 @@ public class KeyValuePair extends Node {
         return value;
     }
 
+    @Override
+    public String toString() {
+        return "KeyValuePair{" +
+                "key='" + key + '\'' +
+                ", value='" + value + '\'' +
+                '}';
+    }
 }

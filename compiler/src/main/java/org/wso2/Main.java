@@ -2,6 +2,7 @@ package org.wso2;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.List;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -10,7 +11,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wso2.antlr.CompilerLexer;
 import org.wso2.antlr.CompilerParser;
+import org.wso2.templating.BallerinaCodeGenerator;
+import org.wso2.tree.Client;
 import org.wso2.tree.CompilationUnit;
+import org.wso2.tree.Node;
+import org.wso2.util.Constants;
 
 public class Main {
     private static final Logger LOG = LoggerFactory.getLogger(Main.class);
@@ -27,8 +32,9 @@ public class Main {
             parser.addParseListener(new Listener(compilationUnit));
             CompilerParser.CompilationUnitContext compilationUnitContext = parser.compilationUnit();
 
+            BallerinaCodeGenerator.compilePubSubTemplates(compilationUnit);
         } catch (IOException e) {
-            LOG.error(e.getLocalizedMessage());
+            e.printStackTrace();
         }
     }
 }

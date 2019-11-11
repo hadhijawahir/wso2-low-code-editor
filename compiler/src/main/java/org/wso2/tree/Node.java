@@ -10,8 +10,12 @@ public abstract class Node {
     public Node parent;
     private List<Node> children = new ArrayList<>();
 
-    public Node() {
+    public Node(String type) {
+        this.type = type;
+    }
 
+    public String getType() {
+        return type;
     }
 
     public void setParent(Node parentNode) {
