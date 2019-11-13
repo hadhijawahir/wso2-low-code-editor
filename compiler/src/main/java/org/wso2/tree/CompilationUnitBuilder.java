@@ -1,17 +1,19 @@
 package org.wso2.tree;
 
-import org.wso2.antlr.CompilerParser;
-
 import java.util.Stack;
+import org.wso2.antlr.CompilerParser;
 
 public class CompilationUnitBuilder {
     private CompilationUnit compilationUnit;
-    private Stack<Node> nodes = new Stack<>();
     private Stack<Client> clientStack = new Stack<>();
     private Stack<KeyValuePair> keyValuePairStack = new Stack<>();
 
+    public CompilationUnitBuilder(CompilationUnit compilationUnit) {
+        this.compilationUnit = compilationUnit;
+    }
+
     public void startCompilationUnit(CompilerParser.CompilationUnitContext ctx) {
-        compilationUnit = new CompilationUnit();
+
     }
 
     public void endCompilationUnit(CompilerParser.CompilationUnitContext ctx) {
@@ -48,7 +50,7 @@ public class CompilationUnitBuilder {
 
     public void endKeyValuePair(CompilerParser.KeyValuePairContext ctx) {
         String rawContent = ctx.getText();
-        String[] split = rawContent.split(":");
+        String[] split = rawContent.replace(";", "").split(":", 2);
         String key = split[0];
         String value = split[1].replace("\"", "");
 

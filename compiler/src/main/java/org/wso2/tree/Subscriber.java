@@ -1,6 +1,10 @@
 package org.wso2.tree;
 
 
-public class Subscriber extends Client {
+import org.wso2.util.Constants;
 
+public class Subscriber extends Client {
+    public Subscriber() {
+        super(Constants.SUBSCRIBER);
+    }
 }

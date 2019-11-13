@@ -1,6 +1,7 @@
 package org.wso2;
 
 import org.wso2.antlr.CompilerParser;
+import org.wso2.tree.CompilationUnit;
 import org.wso2.tree.CompilationUnitBuilder;
 
 
@@ -9,8 +10,8 @@ public class Listener extends org.wso2.antlr.CompilerParserBaseListener {
     private CompilationUnitBuilder compilationUnitBuilder;
 
 
-    public Listener() {
-        this.compilationUnitBuilder = new CompilationUnitBuilder();
+    public Listener(CompilationUnit compilationUnit) {
+        this.compilationUnitBuilder = new CompilationUnitBuilder(compilationUnit);
     }
 
     @Override

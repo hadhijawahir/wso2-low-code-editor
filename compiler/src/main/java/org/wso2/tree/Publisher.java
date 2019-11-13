@@ -1,6 +1,10 @@
 package org.wso2.tree;
 
 
-public class Publisher extends Client {
+import org.wso2.util.Constants;
 
+public class Publisher extends Client {
+    public Publisher() {
+        super(Constants.PUBLISHER);
+    }
 }
